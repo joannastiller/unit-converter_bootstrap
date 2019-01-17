@@ -3,12 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Przelicznik wagi</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
         integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+    margin-top: 70px;
+    background-color: #333;
+    color: white;
+}
+   </style>
 </head>
 
 <body>
@@ -17,36 +23,55 @@
             <div class="col-md-6 offset-md-3">
                 <h1 class="display-4 text-center mb-3">Przelicznik wagi</h1>
                 <form autocomplete="off">
-                    <div class="form-group">
-                        <input id="kgInput" type="number" class="form-control form-cotrol-lg" placeholder="Wpisz kilogramy">
-                    </div>
-                </form>
-                <div id="output">
-                    <div class="card card-primary mb-2">
-                        <div class="card-block">
-                            <h4>Gramy:</h4>
-                            <div id="gramsOutput"></div>
+                    <div class="input-group">
+                        <input type="number" id="input" class="form-control form-control-lg small-input" pattern="[0-9]*"
+                            onkeypress="preventNonNumericalInput(event)" aria-label="Number input with dropdown button">
+                        <span class="input-group-btn">
+                        <div class="input-group-append">
+                            <button class="btn btn-default btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Wybierz jednostkę</button></span>
+                        <div class="dropdown-menu">
+                            <a id="dd-kg" class="dropdown-item" href="#">Kilogramy</a>
+                            <a id="dd-gr" class="dropdown-item" href="#">Gramy</a>
+                            <a id="dd-lb" class="dropdown-item" href="#">Funty</a>
+                            <a id="dd-oz" class="dropdown-item" href="#">Uncje</a>
                         </div>
                     </div>
+            </div>
 
-                    <div class="card card-success mb-2">
-                        <div class="card-block">
-                            <h4>Funty:</h4>
-                            <div id="lbsOutput"></div>
-                        </div>
+            </form>
+            <div id="output">
+                <div class="card card-primary mb-2">
+                    <div class="card-block">
+                        <h4>Gramy:</h4>
+                        <div id="gramsOutput"></div>
                     </div>
+                </div>
 
-                    <div class="card card-danger mb-2">
-                        <div class="card-block">
-                            <h4>Uncje:</h4>
-                            <div id="ozOutput"></div>
-                        </div>
+                <div class="card card-success mb-2">
+                    <div class="card-block">
+                        <h4>Funty:</h4>
+                        <div id="lbsOutput"></div>
+                    </div>
+                </div>
+
+                <div class="card card-danger mb-2">
+                    <div class="card-block">
+                        <h4>Uncje:</h4>
+                        <div id="ozOutput"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
     <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
